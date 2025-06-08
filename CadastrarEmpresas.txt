@@ -1,0 +1,10 @@
+Nome: Coca - cola
+Razão Social: Bebidas
+CNPJ: 68755
+Email: cocacola@gmail.com
+-----------
+Nome: Pepsi
+Razão Social: Bebidas
+CNPJ: 555444
+Email: pepsi@gmail.com
+-----------
