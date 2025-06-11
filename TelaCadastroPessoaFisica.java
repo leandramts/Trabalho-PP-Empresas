@@ -59,7 +59,7 @@ public class TelaCadastroPessoaFisica extends JFrame {
             try {
                 String nome = nomeField.getText().trim();
                 String email = emailField.getText().trim();
-                int cpf = Integer.parseInt(cpfField.getText().trim());
+                String cpf = cpfField.getText().trim();
 
                 String[] partes = dataField.getText().trim().split("/");
                 int dia = Integer.parseInt(partes[0]);

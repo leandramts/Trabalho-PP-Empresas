@@ -1,19 +1,19 @@
 public class PessoaFisica extends Usuario {
-    private int cpf;
+    private String cpf;
     private Data dataNascimento;
 
-    public PessoaFisica(int id, String nome, String email, int cpf, Data dataNascimento) {
+    public PessoaFisica(int id, String nome, String email, String cpf, Data dataNascimento) {
         super(id, nome, email); 
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
     }
 
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
