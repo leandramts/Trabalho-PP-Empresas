@@ -51,8 +51,40 @@ public class TelaCadastroTarefa extends JFrame {
         gbc.gridy++;
         panel.add(new JLabel("Status:"), gbc);
         gbc.gridx = 1;
-        JTextField statusField = new JTextField(20);
-        panel.add(statusField, gbc);
+        JPanel statusPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        JButton btnNaoIniciado = new JButton("Não inicializado");
+        JButton btnEmAndamento = new JButton("Em andamento");
+        JButton btnFinalizado = new JButton("Finalizado");
+
+        statusPanel.add(btnNaoIniciado);
+        statusPanel.add(btnEmAndamento);
+        statusPanel.add(btnFinalizado);
+        panel.add(statusPanel, gbc);
+
+        final String[] statusSelecionado = {""};  //vai armazenar os status escolhido
+
+        // Ações dos botões de statuss
+        btnNaoIniciado.addActionListener(e -> {
+            statusSelecionado[0] = "Não inicializado";
+            btnNaoIniciado.setBackground(Color.red);
+            btnEmAndamento.setBackground(null);
+            btnFinalizado.setBackground(null);
+        });
+
+        btnEmAndamento.addActionListener(e -> {
+            statusSelecionado[0] = "Em andamento";
+            btnEmAndamento.setBackground(Color.yellow);
+            btnNaoIniciado.setBackground(null);
+            btnFinalizado.setBackground(null);
+        });
+
+        btnFinalizado.addActionListener(e -> {
+            statusSelecionado[0] = "Finalizado";
+            btnFinalizado.setBackground(Color.GREEN);
+            btnNaoIniciado.setBackground(null);
+            btnEmAndamento.setBackground(null);
+        });
 
         // Botão Cadastrar
         gbc.gridx = 0;
@@ -66,14 +98,15 @@ public class TelaCadastroTarefa extends JFrame {
             try {
                 String titulo = tituloField.getText().trim();
                 String descricao = descricaoField.getText().trim();
-                String status = statusField.getText().trim();
-
                 String[] dataParts = dataField.getText().trim().split("/");
+                if (statusSelecionado[0].isEmpty()) {
+                    throw new IllegalArgumentException("Selecione um status antes de cadastrar!");
+                }
                 int dia = Integer.parseInt(dataParts[0]);
                 int mes = Integer.parseInt(dataParts[1]);
                 int ano = Integer.parseInt(dataParts[2]);
 
-                Tarefa tarefa = new Tarefa(1, titulo, descricao, new Data(dia, mes, ano), status, usuarioLogado);
+                Tarefa tarefa = new Tarefa(1, titulo, descricao, new Data(dia, mes, ano), statusSelecionado[0], usuarioLogado);
                 salvarTarefaEmArquivo(tarefa);
 
                 JOptionPane.showMessageDialog(this, "Tarefa cadastrada com sucesso!");
@@ -81,7 +114,7 @@ public class TelaCadastroTarefa extends JFrame {
                 int resposta = JOptionPane.showConfirmDialog(
                 this,
                 "Deseja cadastrar outra tarefa?",
-                "Continuar?",
+                "",
                  JOptionPane.YES_NO_OPTION
             );
 
@@ -90,7 +123,10 @@ public class TelaCadastroTarefa extends JFrame {
                 tituloField.setText("");
                 descricaoField.setText("");
                 dataField.setText("");
-                statusField.setText("");
+                statusSelecionado[0] = "";
+                btnNaoIniciado.setBackground(null);
+                btnEmAndamento.setBackground(null);
+                btnFinalizado.setBackground(null);
                 } else {
     // Fecha a tela atual e volta para o menu (você precisa chamar o menu aqui)
                  dispose(); // Fecha a tela de cadastro

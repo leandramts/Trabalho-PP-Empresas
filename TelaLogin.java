@@ -19,7 +19,7 @@ public class TelaLogin extends JFrame {
         });
 
         btnPessoaFisica.addActionListener(e -> {
-            new TelaCadastroPessoaFisica();
+            new TelaVerificacaoCadastro();  // agora a verificação de CPF está em uma classe separada
             dispose();
         });
 

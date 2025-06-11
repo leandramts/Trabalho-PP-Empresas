@@ -56,7 +56,7 @@ public class TelaCadastroGerente extends JFrame {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("Gerentes.txt", true))) {
                 writer.write(nome + ";" + email + ";" + senha);
                 writer.newLine();
-                JOptionPane.showMessageDialog(this, "Gerente cadastrado com sucesso!");
+                //JOptionPane.showMessageDialog(this, "Gerente cadastrado com sucesso!");
                 new TelaLoginGerente();
                 dispose();
             } catch (IOException ex) {

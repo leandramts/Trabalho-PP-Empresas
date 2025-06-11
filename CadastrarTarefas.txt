@@ -1,16 +1,18 @@
-TÃ­tulo: Limpeza
-DescriÃ§Ã£o: Limpar quartos de hoteis
-Data: 9/6/2025
-Status: A fazer
------------
-Título: Projeto 3
-Descrição: projeto de RH
+Título: Tarefa RH
+Descrição: fazer um código que otimize o processo no RH
 Data: 12/6/2025
-Status: começando
+Status: Em andamento
+Responsável: Marilu
 -----------
-Título: teste
-Descrição: teste aa
+Título: teste 2
+Descrição: deu certooo hehehe
 Data: 12/6/2025
-Status: começou
-Responsável: julia
+Status: Finalizado
+Responsável: Usuário
+-----------
+Título: aaa
+Descrição: aaaaa
+Data: 12/6/2025
+Status: Em andamento
+Responsável: Leandres
 -----------
