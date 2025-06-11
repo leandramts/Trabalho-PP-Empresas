@@ -1,8 +1,8 @@
-import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.*;
 
 public class TelaCadastroPessoaFisica extends JFrame {
 
@@ -56,29 +56,27 @@ public class TelaCadastroPessoaFisica extends JFrame {
         panel.add(btnCadastrar, gbc);
 
         btnCadastrar.addActionListener(e -> {
-            try {
-                String nome = nomeField.getText().trim();
-                String email = emailField.getText().trim();
-                String cpf = cpfField.getText().trim();
+    try {
+        String nome = nomeField.getText().trim();
+        String email = emailField.getText().trim();
+        String cpf = cpfField.getText().trim();
 
-                String[] partes = dataField.getText().trim().split("/");
-                int dia = Integer.parseInt(partes[0]);
-                int mes = Integer.parseInt(partes[1]);
-                int ano = Integer.parseInt(partes[2]);
+        String[] partes = dataField.getText().trim().split("/");
+        int dia = Integer.parseInt(partes[0]);
+        int mes = Integer.parseInt(partes[1]);
+        int ano = Integer.parseInt(partes[2]);
 
-                PessoaFisica pf = new PessoaFisica(1, nome, email, cpf, new Data(dia, mes, ano));
+        PessoaFisica pf = new PessoaFisica(1, nome, email, cpf, new Data(dia, mes, ano));
 
-                salvarPessoaEmArquivo(pf);
-                JOptionPane.showMessageDialog(this, "Pessoa cadastrada com sucesso!");
+        salvarPessoaEmArquivo(pf);
+        JOptionPane.showMessageDialog(this, "Pessoa cadastrada com sucesso!");
 
-                nomeField.setText("");
-                emailField.setText("");
-                cpfField.setText("");
-                dataField.setText("");
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Erro nos dados! Verifique o formato.");
-            }
-        });
+        new TelaCadastroTarefa(pf); // chama a tela seguinte
+        dispose(); // fecha esta tela
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Erro nos dados! Verifique o formato.");
+    }
+});
 
         add(panel);
         setVisible(true);

@@ -8,3 +8,13 @@ Email: exemplo@gmail.com
 CPF: 12345678912345
 Data de Nascimento: 4/7/1999
 -----------
+Nome: Marilu
+Email: marilu@gmail.com
+CPF: 67890987653421
+Data de Nascimento: 4/5/2006
+-----------
+Nome: julia
+Email: julia@gmail.com
+CPF: 12345243124536
+Data de Nascimento: 9/8/2007
+-----------

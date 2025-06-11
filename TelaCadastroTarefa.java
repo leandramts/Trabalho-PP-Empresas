@@ -1,12 +1,16 @@
-import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.*;
 
 public class TelaCadastroTarefa extends JFrame {
 
-    public TelaCadastroTarefa() {
+    private Usuario usuarioLogado;
+
+    public TelaCadastroTarefa(Usuario usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
+
         setTitle("Cadastro de Tarefa");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 300);
@@ -69,14 +73,30 @@ public class TelaCadastroTarefa extends JFrame {
                 int mes = Integer.parseInt(dataParts[1]);
                 int ano = Integer.parseInt(dataParts[2]);
 
-                Tarefa tarefa = new Tarefa(1, titulo, descricao, new Data(dia, mes, ano), status);
+                Tarefa tarefa = new Tarefa(1, titulo, descricao, new Data(dia, mes, ano), status, usuarioLogado);
                 salvarTarefaEmArquivo(tarefa);
 
                 JOptionPane.showMessageDialog(this, "Tarefa cadastrada com sucesso!");
+
+                int resposta = JOptionPane.showConfirmDialog(
+                this,
+                "Deseja cadastrar outra tarefa?",
+                "Continuar?",
+                 JOptionPane.YES_NO_OPTION
+            );
+
+                if (resposta == JOptionPane.YES_OPTION) {
+                 // Limpa os campos para novo cadastro
                 tituloField.setText("");
                 descricaoField.setText("");
                 dataField.setText("");
                 statusField.setText("");
+                } else {
+    // Fecha a tela atual e volta para o menu (você precisa chamar o menu aqui)
+                 dispose(); // Fecha a tela de cadastro
+                new TelaLogin(); 
+                }
+
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Erro nos dados! Verifique o formato.");
             }
@@ -96,12 +116,10 @@ public class TelaCadastroTarefa extends JFrame {
             writer.newLine();
             writer.write("Status: " + tarefa.getStatus());
             writer.newLine();
+            writer.write("Responsável: " + tarefa.getResponsavel().getNome());
+            writer.newLine();
             writer.write("-----------");
             writer.newLine();
         }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(TelaCadastroTarefa::new);
     }
 }

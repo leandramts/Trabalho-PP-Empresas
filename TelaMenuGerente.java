@@ -108,9 +108,9 @@ public class TelaMenuGerente extends JFrame {
                 else if (linha.startsWith("Status: ")) status = linha.substring(8);
                 else if (linha.startsWith("Responsável: ")) responsavel = linha.substring(12);
                 else if (linha.startsWith("-----------")) {
-                    if (responsavel.equals(usuario.getNome())) {
+                    if (responsavel.trim().equalsIgnoreCase(usuario.getNome().trim())) {
                         String[] d = data.split("/");
-                        Tarefa t = new Tarefa(0, titulo, descricao, new Data(Integer.parseInt(d[0]), Integer.parseInt(d[1]), Integer.parseInt(d[2])), status);
+                        Tarefa t = new Tarefa(0, titulo, descricao, new Data(Integer.parseInt(d[0]), Integer.parseInt(d[1]), Integer.parseInt(d[2])), status, usuario);
                         tarefas.add(t);
                     }
                     titulo = descricao = data = status = responsavel = "";
