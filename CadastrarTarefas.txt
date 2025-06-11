@@ -1,18 +1,60 @@
-Título: Tarefa RH
-Descrição: fazer um código que otimize o processo no RH
+Título: teste 1
+Descrição: testando os botoes e cadastros
 Data: 12/6/2025
 Status: Em andamento
 Responsável: Marilu
 -----------
 Título: teste 2
-Descrição: deu certooo hehehe
-Data: 12/6/2025
-Status: Finalizado
-Responsável: Usuário
------------
-Título: aaa
-Descrição: aaaaa
+Descrição: será que funciona continuando?
 Data: 12/6/2025
 Status: Em andamento
-Responsável: Leandres
+Responsável: Marilu
+-----------
+Título: teste 3
+Descrição: pegoooooou hehehhe
+Data: 12/6/2025
+Status: Finalizado
+Responsável: Marilu
+-----------
+Título: Telas e cadastros
+Descrição: criar telas para o funcionamento visual do código
+Data: 12/6/2025
+Status: Finalizado
+Responsável: Leandra Matos
+-----------
+Título: Classes
+Descrição: criar as classes para o funcionamento do código de cadastro
+Data: 12/6/2025
+Status: Finalizado
+Responsável: Maria Luiza Nobre
+-----------
+Título: UML
+Descrição: criar os diagramas de sequencia e a ficha de requisistos do programa
+Data: 12/6/2025
+Status: Em andamento
+Responsável: `Pedro Portela
+-----------
+Título: UML 2
+Descrição: fazer os diagramas de classe e objeto para o programa
+Data: 12/6/2025
+Status: Em andamento
+Responsável: Pedro Castro
+-----------
+Título: entendi como funciona
+Descrição: aaaa
+Data: 11/11/1999
+Status: Finalizado
+Responsável: mariaa
+-----------
+Título: aaa
+Descrição: bbb
+Data: 11/12/2006
+Status: Finalizado
+Responsável: mariaa
+-----------
+Título: funcionou
+Descrição: ebaaaa
+Data: 12/6/2025
+Status: Em andamento
+Responsável: mariaa
 -----------

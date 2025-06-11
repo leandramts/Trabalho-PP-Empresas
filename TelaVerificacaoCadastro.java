@@ -33,37 +33,77 @@ public class TelaVerificacaoCadastro extends JFrame {
     }
 
     private void verificarCPF() {
-        String cpf = JOptionPane.showInputDialog(this, "Digite seu CPF:");
+    String cpfDigitado = JOptionPane.showInputDialog(this, "Digite seu CPF:");
 
-        if (cpf == null || cpf.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "CPF não pode estar vazio.");
-            return;
-        }
+    if (cpfDigitado == null || cpfDigitado.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "CPF não pode estar vazio.");
+        return;
+    }
 
-        boolean encontrado = false;
+    // Limpa o CPF digitado para formato só números
+    cpfDigitado = cpfDigitado.replace(".", "").replace("-", "").trim();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("CadastrarPessoas.txt"))) {
-            String linha;
-            while ((linha = reader.readLine()) != null) {
-                if (linha.contains("CPF: " + cpf)) {
-                    encontrado = true;
+    PessoaFisica usuarioEncontrado = null;
+
+    try (BufferedReader reader = new BufferedReader(new FileReader("CadastrarPessoas.txt"))) {
+        String linha;
+        String nome = "", email = "", cpf = "";
+        int dia = 0, mes = 0, ano = 0;
+
+        while ((linha = reader.readLine()) != null) {
+            if (linha.startsWith("Nome: ")) {
+                nome = linha.substring(6).trim();
+            } else if (linha.startsWith("Email: ")) {
+                email = linha.substring(7).trim();
+            } else if (linha.startsWith("CPF: ")) {
+                cpf = linha.substring(5).replace(".", "").replace("-", "").trim();
+            } else if (linha.startsWith("Data de nascimento: ")) {
+                String[] partes = linha.substring(20).trim().split("/");
+                if (partes.length == 3) {
+                    try {
+                        dia = Integer.parseInt(partes[0]);
+                        mes = Integer.parseInt(partes[1]);
+                        ano = Integer.parseInt(partes[2]);
+                    } catch (NumberFormatException e) {
+                        dia = mes = ano = 0; // padrão caso erro
+                    }
+                }
+            } else if (linha.equals("----------")) {
+                // Verifica se CPF bate
+                if (cpf.equals(cpfDigitado)) {
+                    usuarioEncontrado = new PessoaFisica(1, nome, email, cpf, new Data(dia, mes, ano));
                     break;
                 }
+                // limpa para próximo cadastro
+                nome = "";
+                email = "";
+                cpf = "";
+                dia = mes = ano = 0;
             }
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "Erro ao ler o arquivo.");
         }
 
-        if (encontrado) {
-            //JOptionPane.showMessageDialog(this, "Login realizado com sucesso!");
-            new TelaCadastroTarefa(new PessoaFisica(0, "Usuário", "email@email.com", cpf, null)); // substitua por dados reais se desejar
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "CPF não encontrado. Faça o cadastro.");
-            new TelaVerificacaoCadastro(); // volta para a tela de verificação
-            dispose();
+        // Caso o arquivo não tenha "----------" após o último usuário, verifica também após a leitura
+        if (usuarioEncontrado == null && !cpf.isEmpty()) {
+            if (cpf.equals(cpfDigitado)) {
+                usuarioEncontrado = new PessoaFisica(1, nome, email, cpf, new Data(dia, mes, ano));
+            }
         }
+
+    } catch (IOException ex) {
+        JOptionPane.showMessageDialog(this, "Erro ao ler o arquivo: " + ex.getMessage());
+        return;
     }
+
+    if (usuarioEncontrado != null) {
+        new TelaCadastroTarefa(usuarioEncontrado);
+        dispose();
+    } else {
+        JOptionPane.showMessageDialog(this, "CPF não encontrado. Faça o cadastro.");
+        new TelaVerificacaoCadastro();
+        dispose();
+    }
+}
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(TelaVerificacaoCadastro::new);
