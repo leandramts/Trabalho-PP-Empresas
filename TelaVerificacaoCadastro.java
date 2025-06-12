@@ -79,7 +79,7 @@ public class TelaVerificacaoCadastro extends JFrame {
                         mes = Integer.parseInt(partes[1]);
                         ano = Integer.parseInt(partes[2]);
                     } catch (NumberFormatException e) {
-                        dia = mes = ano = 0; // padrão caso erro
+                        dia = mes = ano = 0; 
                     }
                 }
             } else if (linha.equals("-----------")) {
