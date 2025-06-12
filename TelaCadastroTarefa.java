@@ -111,26 +111,33 @@ public class TelaCadastroTarefa extends JFrame {
 
                 JOptionPane.showMessageDialog(this, "Tarefa cadastrada com sucesso!");
 
-                int resposta = JOptionPane.showConfirmDialog(
+                
+                Object[] opcoes = {"Sim", "Não"};
+                int resposta = JOptionPane.showOptionDialog(
                 this,
                 "Deseja cadastrar outra tarefa?",
-                "",
-                 JOptionPane.YES_NO_OPTION
-            );
+                "Confirmação",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                 opcoes,
+                 opcoes[0]
+                );
+
 
                 if (resposta == JOptionPane.YES_OPTION) {
-                 // Limpa os campos para novo cadastro
-                tituloField.setText("");
-                descricaoField.setText("");
-                dataField.setText("");
-                statusSelecionado[0] = "";
-                btnNaoIniciado.setBackground(null);
-                btnEmAndamento.setBackground(null);
-                btnFinalizado.setBackground(null);
+                    // Limpa os campos para novo cadastro
+                    tituloField.setText("");
+                    descricaoField.setText("");
+                    dataField.setText("");
+                    statusSelecionado[0] = "";
+                    btnNaoIniciado.setBackground(null);
+                    btnEmAndamento.setBackground(null);
+                    btnFinalizado.setBackground(null);
                 } else {
-    // Fecha a tela atual e volta para o menu (você precisa chamar o menu aqui)
-                 dispose(); // Fecha a tela de cadastro
-                new TelaLogin(); 
+                    // Fecha a tela de cadastro e retorna ao login
+                    dispose(); // Fecha a tela de cadastro
+                    new TelaLogin();
                 }
 
             } catch (Exception ex) {

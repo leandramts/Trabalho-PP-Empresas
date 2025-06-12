@@ -7,29 +7,43 @@ import javax.swing.*;
 public class TelaVerificacaoCadastro extends JFrame {
 
     public TelaVerificacaoCadastro() {
-        setTitle("Verificação de Cadastro");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(350, 200);
-        setLocationRelativeTo(null);
-        setLayout(new FlowLayout());
+    setTitle("Verificação de Cadastro");
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    setSize(350, 200);
+    setLocationRelativeTo(null);
+    setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
-        JButton btnSim = new JButton("Já tenho cadastro");
-        JButton btnNao = new JButton("Ainda não tenho cadastro");
+    JLabel pergunta = new JLabel("Você já possui cadastro?");
+    pergunta.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        btnSim.addActionListener(e -> {
-            verificarCPF();
-        });
+    JButton btnSim = new JButton("Já tenho cadastro");
+    JButton btnNao = new JButton("Ainda não tenho cadastro");
 
-        btnNao.addActionListener(e -> {
-            new TelaCadastroPessoaFisica(); // vai para o cadastro direto
-            dispose();
-        });
+    btnSim.setAlignmentX(Component.CENTER_ALIGNMENT);
+    btnNao.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        add(new JLabel("Você já possui cadastro?"));
-        add(btnSim);
-        add(btnNao);
+    btnSim.addActionListener(e -> verificarCPF());
+    btnNao.addActionListener(e -> {
+        new TelaCadastroPessoaFisica(); // vai para o cadastro direto
+        dispose();
+    });
 
-        setVisible(true);
+    // Painel com espaçamento
+    JPanel painelCentral = new JPanel();
+    painelCentral.setLayout(new BoxLayout(painelCentral, BoxLayout.Y_AXIS));
+    painelCentral.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // margem interna
+
+    painelCentral.add(pergunta);
+    painelCentral.add(Box.createVerticalStrut(15)); // espaço entre texto e primeiro botão
+    painelCentral.add(btnSim);
+    painelCentral.add(Box.createVerticalStrut(10)); // espaço entre os botões
+    painelCentral.add(btnNao);
+
+    add(Box.createVerticalGlue()); // empurra o painel para o centro verticalmente
+    add(painelCentral);
+    add(Box.createVerticalGlue());
+
+    setVisible(true);
     }
 
     private void verificarCPF() {
@@ -57,7 +71,7 @@ public class TelaVerificacaoCadastro extends JFrame {
                 email = linha.substring(7).trim();
             } else if (linha.startsWith("CPF: ")) {
                 cpf = linha.substring(5).replace(".", "").replace("-", "").trim();
-            } else if (linha.startsWith("Data de nascimento: ")) {
+            } else if (linha.startsWith("Data de Nascimento: ")) {
                 String[] partes = linha.substring(20).trim().split("/");
                 if (partes.length == 3) {
                     try {
@@ -68,13 +82,13 @@ public class TelaVerificacaoCadastro extends JFrame {
                         dia = mes = ano = 0; // padrão caso erro
                     }
                 }
-            } else if (linha.equals("----------")) {
-                // Verifica se CPF bate
+            } else if (linha.equals("-----------")) {
+                // Verifica se o CPF bate
                 if (cpf.equals(cpfDigitado)) {
                     usuarioEncontrado = new PessoaFisica(1, nome, email, cpf, new Data(dia, mes, ano));
                     break;
                 }
-                // limpa para próximo cadastro
+                // limpa para o próximo cadastro
                 nome = "";
                 email = "";
                 cpf = "";
@@ -82,7 +96,7 @@ public class TelaVerificacaoCadastro extends JFrame {
             }
         }
 
-        // Caso o arquivo não tenha "----------" após o último usuário, verifica também após a leitura
+        // Caso o arquivo não tenha "-----------" após o último usuário, verifica também após a leitura
         if (usuarioEncontrado == null && !cpf.isEmpty()) {
             if (cpf.equals(cpfDigitado)) {
                 usuarioEncontrado = new PessoaFisica(1, nome, email, cpf, new Data(dia, mes, ano));
@@ -99,7 +113,7 @@ public class TelaVerificacaoCadastro extends JFrame {
         dispose();
     } else {
         JOptionPane.showMessageDialog(this, "CPF não encontrado. Faça o cadastro.");
-        new TelaVerificacaoCadastro();
+        new TelaCadastroPessoaFisica();  // Chama a tela de cadastro
         dispose();
     }
 }

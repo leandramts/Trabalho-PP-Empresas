@@ -1,60 +1,60 @@
-TÌtulo: teste 1
-DescriÁ„o: testando os botoes e cadastros
-Data: 12/6/2025
+T√≠tulo: Atualizar documenta√ß√£o da API
+Descri√ß√£o: Revisar e atualizar a documenta√ß√£o da API REST para refletir as √∫ltimas altera√ß√µes nos endpoints.
+Data: 13/6/2025
 Status: Em andamento
-Respons·vel: Marilu
+Respons√°vel: Leandra Matos
 -----------
-TÌtulo: teste 2
-DescriÁ„o: ser· que funciona continuando?
-Data: 12/6/2025
-Status: Em andamento
-Respons·vel: Marilu
------------
-TÌtulo: teste 3
-DescriÁ„o: pegoooooou hehehhe
+T√≠tulo: Testes unit√°rios do m√≥dulo de pagamento
+Descri√ß√£o: Escrever e validar testes unit√°rios para garantir o funcionamento correto do m√≥dulo de pagamentos.
 Data: 12/6/2025
 Status: Finalizado
-Respons·vel: Marilu
+Respons√°vel: Leandra Matos
 -----------
-TÌtulo: Telas e cadastros
-DescriÁ„o: criar telas para o funcionamento visual do cÛdigo
-Data: 12/6/2025
+T√≠tulo: Reuni√£o de alinhamento com equipe de produto
+Descri√ß√£o: Participar de reuni√£o para discutir prioridades da pr√≥xima sprint e alinhar metas com o time de produto.
+Data: 13/6/2025
+Status: N√£o inicializado
+Respons√°vel: Maria Luiza
+-----------
+T√≠tulo: Refatorar c√≥digo legado do frontend
+Descri√ß√£o: Melhorar a estrutura e legibilidade do c√≥digo JavaScript no m√≥dulo de relat√≥rios, mantendo a funcionalidade.
+Data: 10/6/2025
 Status: Finalizado
-Respons·vel: Leandra Matos
+Respons√°vel: Maria Luiza
 -----------
-TÌtulo: Classes
-DescriÁ„o: criar as classes para o funcionamento do cÛdigo de cadastro
-Data: 12/6/2025
+T√≠tulo: Criar painel de controle para clientes
+Descri√ß√£o: Desenvolver interface administrativa para que clientes possam acompanhar seus projetos e chamados.
+Data: 22/6/2025
+Status: Em andamento
+Respons√°vel: Maria Luiza
+-----------
+T√≠tulo: Organizar arquivos do projeto na pasta compartilhada
+Descri√ß√£o: Verificar e reorganizar os arquivos salvos no Google Drive da equipe para manter uma estrutura padronizada.
+Data: 15/5/2025
+Status: Em andamento
+Respons√°vel: Pedro H Castro
+-----------
+T√≠tulo: Conferir atualiza√ß√µes pendentes no antiv√≠rus
+Descri√ß√£o: Acessar o painel de controle do antiv√≠rus corporativo e garantir que todos os dispositivos est√£o atualizados.
+Data: 9/6/2025
 Status: Finalizado
-Respons·vel: Maria Luiza Nobre
+Respons√°vel: Pedro H Castro
 -----------
-TÌtulo: UML
-DescriÁ„o: criar os diagramas de sequencia e a ficha de requisistos do programa
+T√≠tulo: Criar post para redes sociais sobre nova funcionalidade
+Descri√ß√£o: Produzir um pequeno texto com imagem para divulga√ß√£o de nova fun√ß√£o do sistema nas redes da empresa.
 Data: 12/6/2025
 Status: Em andamento
-Respons·vel: `Pedro Portela
+Respons√°vel: Pedro Portela
 -----------
-TÌtulo: UML 2
-DescriÁ„o: fazer os diagramas de classe e objeto para o programa
-Data: 12/6/2025
-Status: Em andamento
-Respons·vel: Pedro Castro
------------
-TÌtulo: entendi como funciona
-DescriÁ„o: aaaa
-Data: 11/11/1999
+T√≠tulo: Auxiliar no cadastro de clientes no sistema
+Descri√ß√£o: Preencher os dados b√°sicos de novos clientes na plataforma interna conforme informa√ß√µes recebidas por e-mail.
+Data: 4/6/2025
 Status: Finalizado
-Respons·vel: mariaa
+Respons√°vel: Pedro Portela
 -----------
-TÌtulo: aaa
-DescriÁ„o: bbb
-Data: 11/12/2006
-Status: Finalizado
-Respons·vel: mariaa
------------
-TÌtulo: funcionou
-DescriÁ„o: ebaaaa
-Data: 12/6/2025
+T√≠tulo: Atualizar manual de uso do sistema interno
+Descri√ß√£o: Inserir prints e descri√ß√µes atualizadas no manual do sistema utilizado pelos usu√°rios.
+Data: 30/6/2025
 Status: Em andamento
-Respons·vel: mariaa
+Respons√°vel: Maria Luiza
 -----------

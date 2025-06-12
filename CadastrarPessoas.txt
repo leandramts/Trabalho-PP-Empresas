@@ -1,30 +1,20 @@
-Nome: Marilu
-Email: marilu@gmail.com
-CPF: 12345123451234
-Data de Nascimento: 4/4/2004
------------
 Nome: Leandra Matos
-Email: leandmt@gmail.com
-CPF: 00000000001
-Data de Nascimento: 21/8/2002
+Email: lm@gmail.com
+CPF: 005800
+Data de Nascimento: 10/9/2003
 -----------
-Nome: Maria Luiza Nobre
-Email: nobreza@gmail.com
-CPF: 00000000000002
-Data de Nascimento: 13/3/2004
+Nome: Maria Luiza
+Email: mlz@gmail.com
+CPF: 123123
+Data de Nascimento: 16/3/2005
 -----------
-Nome: `Pedro Portela
+Nome: Pedro H Castro
+Email: phc@gmail.com
+CPF: 09889
+Data de Nascimento: 11/1/2004
+-----------
+Nome: Pedro Portela
 Email: pp@gmail.com
-CPF: 000000000000003
-Data de Nascimento: 23/9/2003
------------
-Nome: Pedro Castro
-Email: pc@gmail.com
-CPF: 00000000000004
-Data de Nascimento: 5/1/2006
------------
-Nome: mariaa
-Email: maria@gmail.com
-CPF: 12345678912345
-Data de Nascimento: 12/12/2000
+CPF: 098889
+Data de Nascimento: 14/9/2006
 -----------

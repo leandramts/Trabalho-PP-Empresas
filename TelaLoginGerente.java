@@ -80,13 +80,30 @@ public class TelaLoginGerente extends JFrame {
         panel.add(btnCadastrarGerente, gbc);
 
         btnCadastrarGerente.addActionListener(e -> {
-            String senhaMestre = JOptionPane.showInputDialog(this, "Digite a senha mestre para cadastrar gerente:");
-            if (senhaMestre != null && senhaMestre.equals(SENHA_MESTRE)) {
-                new TelaCadastroGerente();
-                dispose();
-            } else {
-                JOptionPane.showMessageDialog(this, "Senha mestre incorreta!");
-            }
+            JPasswordField passwordField = new JPasswordField();
+             Object[] message = { "Digite a senha mestre para cadastrar gerente:", passwordField };
+
+        int option = JOptionPane.showOptionDialog(
+        this,
+        message,
+        "Senha Mestre",
+        JOptionPane.OK_CANCEL_OPTION,
+        JOptionPane.PLAIN_MESSAGE,
+        null,
+        new String[] { "OK", "Cancelar" }, // Botões personalizados
+        "OK"
+     );
+
+     if (option == JOptionPane.OK_OPTION) {
+    String senhaMestre = new String(passwordField.getPassword());
+     if (senhaMestre.equals(SENHA_MESTRE)) {
+        new TelaCadastroGerente();
+        dispose();
+      } else {
+        JOptionPane.showMessageDialog(this, "Senha mestre incorreta!");
+     }
+    }
+
         });
 
         add(panel);
